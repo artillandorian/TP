@@ -33,7 +33,7 @@ Acceptez le contrat de licence, puis cliquez sur Next :
 
 Ensuite, cliquez sur Installer :
 
-![Image d'installation 6](https://github.com/artillandorian/TP/blob/master/TP2/images/image6.png)
+![Image d'installation 6](https://github.com/artillandorian/TP/blob/master/TP2/images/image%206.png)
 
 Cliquez sur Terminer, pour finir :  
 ![Image d'installation 7](https://github.com/artillandorian/TP/blob/master/TP2/images/image7.png)
