@@ -1,0 +1,224 @@
+{
+  "name": "guppy",
+  "productName": "Guppy",
+  "version": "0.3.0",
+  "private": true,
+  "main": "src/electron.js",
+  "homepage": "./",
+  "build": {
+    "appId": "com.electron.guppy",
+    "files": [
+      "build/**/*"
+    ],
+    "asarUnpack": [
+      "node_modules/yarn/"
+    ],
+    "publish": "github"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshwcomeau/guppy.git"
+  },
+  "license": "ISC",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development npm run start:react",
+    "start:react": "cross-env BROWSER=none node scripts/start.js",
+    "build": "node scripts/build.js",
+    "dist": "cross-env GENERATE_SOURCEMAP=false npm run build && electron-builder -c.extraMetadata.main=build/electron.js",
+    "dist:all": "cross-env GENERATE_SOURCEMAP=false npm run build && electron-builder -mwl -c.extraMetadata.main=build/electron.js",
+    "publish": "yarn dist --publish always",
+    "publish:all": "yarn dist:all --publish always",
+    "test": "node scripts/test.js --env=node",
+    "coverage": "yarn test --coverage",
+    "report-coverage": "yarn coverage && codecov",
+    "flow": "flow",
+    "lint": "eslint src/**/*.js config/**/*.js",
+    "prettier": "prettier --write",
+    "detect-port": "cross-env ./node_modules/detect-port-alt/bin/detect-port 3000",
+    "precommit": "lint-staged",
+    "prepush": "yarn run flow",
+    "build-storybook": "build-storybook -c .storybook -o storybook-static",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "eslint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "create-react-app": "1.5.2",
+    "electron-debug": "2.0.0",
+    "electron-devtools-installer": "2.2.4",
+    "electron-store": "2.0.0",
+    "electron-updater": "3.1.2",
+    "fix-path": "2.1.0",
+    "gatsby-cli": "1.1.58",
+    "ps-tree": "1.1.0",
+    "react-custom-scrollbars": "4.2.1",
+    "rimraf": "2.6.2",
+    "yarn": "1.9.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0-rc.1",
+    "@babel/runtime": "7.0.0-beta.44",
+    "@storybook/addon-actions": "3.4.10",
+    "@storybook/addon-info": "3.4.10",
+    "@storybook/react": "3.4.10",
+    "ansi-to-html": "0.6.4",
+    "async": "2.6.1",
+    "autoprefixer": "7.2.5",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "8.2.2",
+    "babel-jest": "22.1.0",
+    "babel-loader": "8.0.0-beta.0",
+    "babel-plugin-named-asset-import": "1.0.0-next.66cc7a90",
+    "babel-plugin-react-docgen": "2.0.0-babel7.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-react-app": "4.0.0-next.66cc7a90",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "2.4.1",
+    "codecov": "3.1.0",
+    "color": "3.0.0",
+    "cross-env": "5.2.0",
+    "css-loader": "0.28.9",
+    "dotenv": "5.0.0",
+    "dotenv-expand": "4.2.0",
+    "electron": "2.0.1",
+    "electron-builder": "20.28.4",
+    "electron-log": "^2.2.17",
+    "eslint": "4.15.0",
+    "eslint-config-react-app": "3.0.0-next.66cc7a90",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.41.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.7.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "flow-bin": "0.73.0",
+    "foreman": "2.0.0",
+    "fs-extra": "5.0.0",
+    "graphql": "0.12.3",
+    "graphql-tag": "2.6.1",
+    "html-webpack-plugin": "2.30.1",
+    "husky": "0.14.3",
+    "identity-obj-proxy": "3.0.0",
+    "immer": "1.3.1",
+    "import-all.macro": "2.0.3",
+    "jest": "23.3",
+    "lint-staged": "7.2.0",
+    "loader-utils": "1.1.0",
+    "mixpanel-browser": "2.22.4",
+    "moment": "2.22.2",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.10",
+    "prettier": "1.13.7",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "random-seed": "0.3.0",
+    "react": "16.3.2",
+    "react-dev-utils": "6.0.0-next.66cc7a90",
+    "react-docgen": "2.21.0",
+    "react-dom": "16.3.2",
+    "react-icons-kit": "1.1.5",
+    "react-instantsearch": "5.1.0",
+    "react-motion": "0.5.2",
+    "react-powerplug": "1.0.0-rc.1",
+    "react-redux": "5.0.7",
+    "react-spring": "5.3.8",
+    "react-tippy": "1.2.2",
+    "react-transition-group": "2.3.1",
+    "redux": "4.0.0",
+    "redux-devtools": "3.4.1",
+    "redux-devtools-dock-monitor": "1.1.3",
+    "redux-devtools-log-monitor": "1.4.0",
+    "redux-saga": "0.16.0",
+    "redux-storage": "4.1.2",
+    "redux-storage-decorator-debounce": "1.1.3",
+    "redux-storage-decorator-filter": "1.1.8",
+    "redux-storage-decorator-migrate": "1.1.0",
+    "redux-thunk": "2.2.0",
+    "reselect": "3.0.1",
+    "resize-observer-polyfill": "1.5.0",
+    "resolve": "1.6.0",
+    "sass-loader": "7.0.0",
+    "slug": "0.9.1",
+    "style-loader": "0.19.1",
+    "styled-components": "3.2.6",
+    "svgr": "1.8.1",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "thread-loader": "1.1.2",
+    "uglifyjs-webpack-plugin": "1.1.6",
+    "url-loader": "0.6.2",
+    "uuid": "3.3.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.0",
+    "webpack-manifest-plugin": "1.3.2",
+    "whatwg-fetch": "2.0.3"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/electron.js",
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.{js,jsx,mjs}",
+      "**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/babelTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
+      "^.+\\.module\\.css$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.css$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "mjs",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "guppy": {
+    "id": "guppy",
+    "name": "guppy",
+    "type": "create-react-app",
+    "color": "#FF6D00",
+    "icon": null,
+    "createdAt": 1529502079329
+  }
+}
