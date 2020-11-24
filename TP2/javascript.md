@@ -6,7 +6,9 @@ Ce TP montre comment créer un projet React à partir de zéro. Vous allez crée
 **1. Installez [`node et npm`](https://nodejs.org/en/download/), et [`yarn`](https://classic.yarnpkg.com/en/docs/install/#debian-stable) sur vos ordinateurs. Listez les étapes clés de l'installation, comme si vous rédigiez un tutoriel.**
 Rendez-vous sur le site officiel : https://nodejs.org/fr/download/
 
-Consulter le word, car les images ne passent pas ici. 
+Télécharger la version adéquate par rapport à votre ordinateur. (La version LTS de Node est pour l’utilisation en entreprise, alors que la dernière version est la dernière version stable de Node.js)
+! [Image de 1]
+
 
 
 **2. [Quelle ligne de commande](https://github.com/facebook/create-react-app) faut-il lancer pour créer un projet React ?**
