@@ -15,6 +15,7 @@ Répondre aux questions en modifiant directement ce fichier.
 
 **1. A quoi correspond la première ligne ? Connaissez-vous (ou sinon cherchez sur Internet !) une autre manière d'importer des dépendances.**  
 La première ligne créée une constante tableau associatif possédant : un attribut de classe anagrammes, un attribut classe Stack, un attribut classe spirale, un attribut classe puissance4 et un attribut classe fizzBuzz. Ces classes sont appelés dans un fichier externe du nom de javascript.js
+On  peut utiliser Require.js http://requirejs.org/docs/start.html, ainsi on fera un require()
 
 **2. Expliquez le rôle de la fonction `expect`.**  
 La fonction expect est une assertion explicite. Les expectations sont construites à partir de la fonction expect qui prend en argument une valeur. Le tout est suivi d’une fonction dite “matcher” qui prend en argument la valeur attendue. Elle permet de vérifier si la classe anagrammes est bien défini pour la sixième ligne.
