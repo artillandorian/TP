@@ -60,10 +60,7 @@ transform: translateY(0);
 }
 
 }
-View Compiled
 
-
-Resources
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -71,5 +68,11 @@ code {
 }
 
 .Logo {
-  background-image: url(./logo_Pere.png);
+    background-image: url(./logo_Pere.png);
+}
+
+.li {
+    position: relative;
+    align-self: center;
+    padding: 3rem 0;
 }
