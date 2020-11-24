@@ -57,8 +57,7 @@ class Stack {
  }
     
  push(val1){
-    let valeur = this.tableau[this.tableau.length];
-    this.tableau[valeur] = val1;
+   this.tableau.push(val1);
  }
  pop(){
     let valeur = this.tableau[this.tableau.length-1];
