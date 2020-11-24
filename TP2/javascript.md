@@ -1,26 +1,25 @@
-# TP JavaScript
+# TP : création d'un projet React et d'un premier composant.
 
-- Copier le [fichier d'exercices](../assets/javascript.js) et le [fichier de tests](../assets/javascript.test.js) dans votre répertoire git.
+Ce TP montre comment créer un projet React à partir de zéro. Vous allez créer un premier composant, le designer et l'afficher sur un écran.
 
-- Remplir le fichier d'exercices.
 
-- Les [tests automatisés](../assets/javascript.test.js) doivent passer en lançant la commande :
+**1. Installez [`node et npm`](https://nodejs.org/en/download/), et [`yarn`](https://classic.yarnpkg.com/en/docs/install/#debian-stable) sur vos ordinateurs. Listez les étapes clés de l'installation, comme si vous rédigiez un tutoriel.**
+Rendez-vous sur le site officiel : https://nodejs.org/fr/download/
 
-```js
-npm test javascript.test.js
-```
+Consulter le word, car les images ne passent pas ici. 
 
-## Questions sur les tests 
-Répondre aux questions en modifiant directement ce fichier.
 
-**1. A quoi correspond la première ligne ? Connaissez-vous (ou sinon cherchez sur Internet !) une autre manière d'importer des dépendances.**
+**2. [Quelle ligne de commande](https://github.com/facebook/create-react-app) faut-il lancer pour créer un projet React ?**
 
-**2. Expliquez le rôle de la fonction `expect`.**
+**3. Créez un autre projet avec [Guppy](https://github.com/joshwcomeau/guppy). Quelle méthode préférez-vous ?**
 
-**3. A quoi sert `toEqual` ? Trouvez 5 autres fonctions similaires.**
+**4. Modifiez le projet React nouvellement créer pour supprimer le contenu actuel de l'application**
 
-**4. Trouver le rôle des fonctions `beforeEach` et `afterEach`. En déduire le rôle de la fonction `describe`.**
+**5. Créez un nouveau composant avec votre liste de cadeau pour le Père Noel.**
 
-**5. La fonction `console.log` est "mocké". Expliquez ce que cela signifie et comment peut-on utiliser des mocks ?**
+**6. [Ajoutez une image](https://create-react-app.dev/docs/adding-images-fonts-and-files/) du Père Noel.**
 
-**6. Imaginez d'autres cas ou il s'avère utile de mocker une fonction.**
+**7. [Designez](https://create-react-app.dev/docs/adding-a-stylesheet) la page pour qu'elle ressemble à un thème de Noel.**
+
+Le meilleur design aura un point supplémentaire !
+
