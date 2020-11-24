@@ -60,6 +60,8 @@ npx create-react-app "nom de l’app”
 
 Voir projet guppy-0.3.0
 
+Je préfère la méthode npm, car elle nous parait plus simple à appréhender ainsi qu'à utiliser.
+
 **4. Modifiez le projet React nouvellement créer pour supprimer le contenu actuel de l'application**
 
 **5. Créez un nouveau composant avec votre liste de cadeau pour le Père Noel.**
