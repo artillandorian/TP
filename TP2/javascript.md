@@ -9,8 +9,7 @@ Ce TP montre comment créer un projet React à partir de zéro. Vous allez crée
 Rendez-vous sur le site officiel : https://nodejs.org/fr/download/
 
 Télécharger la version adéquate par rapport à votre ordinateur. (La version LTS de Node est pour l’utilisation en entreprise, alors que la dernière version est la dernière version stable de Node.js)  
-! [Image d'installation]   
-(https://github.com/artillandorian/TP/blob/master/TP2/images/image1.jpg)  
+! [Image d'installation](https://github.com/artillandorian/TP/blob/master/TP2/images/image1.jpg)  
 
 Après avoir accepté les étapes de la licence, le programme d’installation vous propose de choisir vos fonctionnalités et leur méthode d’installation, cliquez sur Next.  
 ! [Image d'installation 2]  
