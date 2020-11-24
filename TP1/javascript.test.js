@@ -10,7 +10,7 @@ describe('La fonction anagramme', () => {
   test('doit valider deux phrases anagrammes.', () => {
     expect(anagrammes('hello', 'llohe')).toBeTruthy();
     expect(anagrammes('Whoa! Hi!', 'Hi! Whoa!')).toBeTruthy();
-    expect(anagrammes('RAIL! SAFETY!', 'FAIRY! TALES!')).toBeTruthy();
+    expect(anagrammes('RAIL! SAFETY!', 'fairy tales')).toBeTruthy();
   });
 
   test('doit refuser deux phrass qui ne sont pas des anagrammes.', () => {

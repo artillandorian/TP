@@ -10,19 +10,28 @@ const anagrammes = (stringA, stringB) => {
    * anagrams('RAIL! SAFETY!', 'fairy tales') === true
    * anagrams('Hi there', 'Bye there') === false
    */
-    
-    if (stringA.length !== stringB.length) {
-        return false;
+
+    //Suppression des espaces et des points d'exclamation
+    var sA = stringA.toLowerCase();
+    for (let i = 1; i <= stringA.length; i++){
+        sA = sA.replace(' ', '');
+        sA = sA.replace('!', '');
     }
 
+
+
+    var sB = stringB.toLowerCase();
+    for (let i = 1; i <= stringB.length; i++){
+        sB = sB.replace(' ', '');
+        sB = sB.replace('!', '');
+    }
     //Triez les deux chaînes.
-    var s1 = stringA.split('').sort().join('');
-    var s2 = stringB.split('').sort().join('');
+    var s1 = sA.split('').sort().join('');
+    var s2 = sB.split('').sort().join('');
     //Comparez les deux chaînes triées.
     return (s1 === s2);
 
 };
-
 
 class Stack {
 /**
@@ -48,7 +57,8 @@ class Stack {
  }
     
  push(val1){
-     this.tableau.push(val1);
+    let valeur = this.tableau[this.tableau.length];
+    this.tableau[valeur] = val1;
  }
  pop(){
     let valeur = this.tableau[this.tableau.length-1];
