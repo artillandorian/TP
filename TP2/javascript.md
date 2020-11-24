@@ -11,11 +11,19 @@ Consulter le word, car les images ne passent pas ici.
 
 **2. [Quelle ligne de commande](https://github.com/facebook/create-react-app) faut-il lancer pour créer un projet React ?**
 
+```javascript
+npx create-react-app "nom de l’app”
+```
+
 **3. Créez un autre projet avec [Guppy](https://github.com/joshwcomeau/guppy). Quelle méthode préférez-vous ?**
+
+Voir projet guppy-0.3.0
 
 **4. Modifiez le projet React nouvellement créer pour supprimer le contenu actuel de l'application**
 
 **5. Créez un nouveau composant avec votre liste de cadeau pour le Père Noel.**
+
+Voir projet liste de noel
 
 **6. [Ajoutez une image](https://create-react-app.dev/docs/adding-images-fonts-and-files/) du Père Noel.**
 
