@@ -22,21 +22,42 @@ Il permet de créer une structure de données d'un utilisateur. Certains éléme
 Pour construire un utilisateur : son nom, son prénom et un titre est obligatoire
 
 **5. A quoi correspond `PropTypes.shape` ?**
-Il permet de créer des sous catégories à des éléments. Tel que pour l'élément "name". Cette catégorie possède un first (prénom), last (nom) et un titre. Cela permet donc de structuer les données. 
+Il permet de créer des sous catégories à des éléments. Tel que pour l'élément "name". Cette catégorie possède un first (prénom), last (nom) et un titre. Cela permet donc de structurer les données.
 
 **6. Pourquoi l'attribut contient deux accolades ?**
-????
+Ces doubles accolades permettent d'accéder à la feuille de style css.
 
 **7. Quel est le nom de l'opérateur qui transmet les données du composant `App` vers le composant `User`? Pourquoi est-ce dangereux d'abuser de cet opérateur ?**
-l'opérateur est "export default". Il est lié au nom de du fichier car c'est un export default. Il est aussi possible d'exporter sans default, mais de ce cas, cet export n'est pas lié au nom du fichier mais au nom de la fonction en elle meme.
+l'opérateur est "export default". Il est lié au nom de du fichier car c'est un export default. Il est aussi possible d'exporter sans default, mais de ce cas, cet export n'est pas lié au nom du fichier mais au nom de la fonction en elle même.
 
 
 **8. Ajoutez un paragraphe `p` au composant `User` pour afficher la date de naissance sous la forme "Né le 27/02/1942" pour un homme ou "Née le 27/02/1942" pour une femme en utilisant une condition ternaire. Copiez le code ajouté dans ce document en guise de réponse.**
 
-(Pensez à mettre votre code dans des balises Markdown  !!)
+
+#### Voici le code proposé pour le projet
+
+<p>
+      {props.location.state}, {props.location.country},
+      {props.gender === "male" ? "Né le 27/02/1942" : "Née le 27/02/1942"}
+</p>
+
+####
 
 ## Rédaction de tests
 **9. Lisez [les recettes de tests](https://fr.reactjs.org/docs/testing-recipes.html#gatsby-focus-wrapper). Rédigez un test pour vérifier que le composant `User` contient une image.**
+
+// image.test.js
+
+import React from "react";
+import PropTypes from "prop-types";
+import "./styles.css";
+import users from "./Users.json";
+
+describe('La fonction vérification image', () => {
+  test('doit exister', () => {
+    expect(users[0].picture.medium).toBeTruthy();
+  });
+});
 
 **10. Rédigez un autre test dans lequel vous créez le composant `User` avec le `name` de votre choix dans le `props` et vérifiez que le composant affiche bien le `name`.**
 
@@ -45,7 +66,7 @@ l'opérateur est "export default". Il est lié au nom de du fichier car c'est un
 **12. Proposez 3 autres tests**
 
 
-## Mini-projet 
+## Mini-projet
 
 [Téléchargez une liste de films sous le format d'un fichier JSON](https://imdb-api.com/). Cela vous demandera de créer un compte.
 
