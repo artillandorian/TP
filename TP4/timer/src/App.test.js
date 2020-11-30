@@ -40,7 +40,7 @@ it("renders without crashing", () => {
     expect(container.textConent).toMatch("1min : 0s");
     
     act(() => {
-        jest.adavanceTimersByTime(60*1000 + 60*60*1000);
+        jest.adavanceTimersByTime(60*1000 + 60*1000);
     });
     expect(container.textContent).toMatch("0min : 0s");
 });
