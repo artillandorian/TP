@@ -20,19 +20,36 @@ le props de ce programme possède une fonction permettant de vérifier la validi
 useState quant à lui, récupère via un import de react des règles de gestions permettant de vérifier des entrées et empéchant l'accès au bouton de création de compte lorsque les éléments fournis par l'utilisateur ne correspondent pas.
 
 **3. Que contient la variable `event` dans `onChange={(event) => setName(event.target.value)}`? Vous pouvez la scruter à l'aide de `console.log`.**
-La méthode onChange permet de vérifier si un élément dans un document web est modifié par l'utilisateur. Ici la méthode onChange vérifie : pour le premier : la zone de texte du nom / pour le deuxième l'email. Event = donc la saisie directe de l'utilisateur. On peut d'ailleur le constater lorsque l'enregistrement est effectué la première fois. La méthode onChange vérifie l'event qui est la zone de texte, et la remet en bas de page.
+La méthode onChange permet de vérifier si un élément dans un document web est modifié par l'utilisateur. Ici la méthode onChange vérifie : pour le premier : la zone de texte du nom / pour le deuxième l'email. La valeur entrée est récupéré par la variable "value". La variable event possède les fonctions permettant d'afficher les valeurs entrées.
 
 **4. Pourquoi doit-on encapsuler un espace avec `{" "}` ?**
-Cette encapsulation permet, lorsque le programme traduit le code en html, d'ajouter un espace avant le texte généré grace à cette méthode : {message ? <em>{message}</em> : null}.
+Cette encapsulation permet, lorsque le programme traduit le code en html, d'ajouter un espace avant le texte généré grace à cette méthode : 
+```javascript
+{message ? <em>{message}</em> : null}.
+```
 De plus, la mise en place de cette encapsulation permet d'éviter qu'il y ait plusieurs instances de "styled-components" de s'initialiser en même temps dans l'application. Ce qui peut poser des erreurs pendant le rafraichissement des éléments de la page, et qui peut potentiellement faire sauter instructions du programme.
+
 
 **5. Peut-on transmettre une fonction dans un Props ?**
 Oui, c'est d'ailleurs ce que nous avons pu constater sur la ligne 9. Props utilise une fonction "isValid". On peut donc chargé un props de fonctions et les utiliser dans notre programme.
 
 **6. Précisez étape par étape ce que fait React lorsque le champ nom est modifié.**
 
-**7. Expliquez la regex pour valider un email. Vous pouvez la recopier dans regex101.com pour vous aider.**
+Ligne 77 : appel de la fonction NameField se situant ligne 32.
+Ligne 32 : mise en place de la fonction ayant comme valeurs d'entrées "name" et "setname".
+Ligne 33 : création d'une variable string. Elle appelle la fonction validateName (ligne 26) qui vérifie la présence ou non d'un élément provenant de la zone de texte "name". Si un élément existe alors elle ne renvoie rien. Si un élément n'existe pas elle renvoie le texte "Un nom est obligatoire".
+Ligne 34 : la fonction retour un mélange de js et html/
+Ligne 35 : permet de mettre plusieurs attributs à ce return
+Ligne 36 : met en place un input ayant comme valeur les données saisie par l'utilisateur (ligne 37), étant comme type "texte" (ligne 38), possèdant une action onChange récupérant cette la value pour l'instancier.
+Ligne 40 : fonction is valid qui verifie si la variable message est strictement égale à 0 ou non.
+Ligne 41 : fermeture de l'input
+Ligne 42 : affichage de la variable message.
 
+
+**7. Expliquez la regex pour valider un email. Vous pouvez la recopier dans regex101.com pour vous aider.**
+Le regex permet d'obliger l'utilisateur à remplir une zone avec des restrictions.
+Par exemple le regex mis en place dans la fonction validateEmail oblige l'utilisateur à :
+1. Mettre un caractère (ou plusieurs) entre a et z / A et Z / 0 et 9 et autorise aussi "
 
 ## Mini-projet : un timer
 
