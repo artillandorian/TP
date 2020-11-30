@@ -8,12 +8,12 @@ En pratique, des librairies comme [Formik](https://formik.org/) proposent une AP
 Lisez [le code lié à ce TP](https://codesandbox.io/s/tp-react-form-itrhu?file=/src/index.js) puis répondez aux questions.
 
 **1. Décrire le rôle de chaque fonction (une phrase par fonction).**  
-La fonction validateEmail permet d'accepter tous les caractères, ainsi que les symboles et elle vérifie qu'on a rentré une adresse mail valide.
-La fonction validateName regarde si on a rentré un caractère.
-La fonction NameField  recupère le texte rentré dans nom
-La fonction EmailField recupère le texte rentré dans courriel
-La fonction Inscription vérifie que le nom et l'email sont tous les deux valides.
-La fonction submit permet de valider la création du compte.
+La fonction validateEmail permet d'accepter tous les caractères, ainsi que les symboles et elle vérifie qu'on a rentré une adresse mail valide.  
+La fonction validateName regarde si on a rentré un caractère.  
+La fonction NameField  recupère le texte rentré dans nom.  
+La fonction EmailField recupère le texte rentré dans courriel.  
+La fonction Inscription vérifie que le nom et l'email sont tous les deux valides.  
+La fonction submit permet de valider la création du compte.  
 
 **2. Quelles sont les states et les props mis en jeu ? Indiquez leur valeur par défaut.**
 
