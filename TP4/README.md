@@ -16,12 +16,18 @@ La fonction Inscription vérifie que le nom et l'email sont tous les deux valide
 La fonction submit permet de valider la création du compte.  
 
 **2. Quelles sont les states et les props mis en jeu ? Indiquez leur valeur par défaut.**
+le props de ce programme possède une fonction permettant de vérifier la validité des valeurs entrées par l'utilisateur. Ce props possède donc plusieurs méthodes, dont "isValid".
+useState quant à lui, récupère via un import de react des règles de gestions permettant de vérifier des entrées et empéchant l'accès au bouton de création de compte lorsque les éléments fournis par l'utilisateur ne correspondent pas.
 
 **3. Que contient la variable `event` dans `onChange={(event) => setName(event.target.value)}`? Vous pouvez la scruter à l'aide de `console.log`.**
+La méthode onChange permet de vérifier si un élément dans un document web est modifié par l'utilisateur. Ici la méthode onChange vérifie : pour le premier : la zone de texte du nom / pour le deuxième l'email. Event = donc la saisie directe de l'utilisateur. On peut d'ailleur le constater lorsque l'enregistrement est effectué la première fois. La méthode onChange vérifie l'event qui est la zone de texte, et la remet en bas de page.
 
 **4. Pourquoi doit-on encapsuler un espace avec `{" "}` ?**
+Cette encapsulation permet, lorsque le programme traduit le code en html, d'ajouter un espace avant le texte généré grace à cette méthode : {message ? <em>{message}</em> : null}.
+De plus, la mise en place de cette encapsulation permet d'éviter qu'il y ait plusieurs instances de "styled-components" de s'initialiser en même temps dans l'application. Ce qui peut poser des erreurs pendant le rafraichissement des éléments de la page, et qui peut potentiellement faire sauter instructions du programme.
 
 **5. Peut-on transmettre une fonction dans un Props ?**
+Oui, c'est d'ailleurs ce que nous avons pu constater sur la ligne 9. Props utilise une fonction "isValid". On peut donc chargé un props de fonctions et les utiliser dans notre programme.
 
 **6. Précisez étape par étape ce que fait React lorsque le champ nom est modifié.**
 
