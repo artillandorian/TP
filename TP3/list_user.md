@@ -125,7 +125,7 @@ it("devrait afficher une salutation", () => {
 ```
 
 **12. Proposez 3 autres tests**  
-On pourrait vérifier que l'adresse URL du site est bon.  
+On pourrait vérifier que l'adresse URL du site est correcte.  
 On pourrait vérifier toutes les informations d'un utilisateur.(nom, prénom, adresse email, ...)  
 On pourrait vérifier si l'utilisateur est en ligne ou déconnecté (avec un bouton vert pour dire qu'il est connecté, et un rouge pour dire qu'il est déconnecté).
 
