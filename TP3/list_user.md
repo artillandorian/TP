@@ -124,34 +124,10 @@ it("devrait afficher une salutation", () => {
   ).toMatchInlineSnapshot();
 ```
 
-**12. Proposez 3 autres tests**
-import React, { useState, useEffect } from "react";
-
-export default function User(props) {
-  const [user, setUser] = useState(null);
-
-  async function fetchUserData(id) {
-    const response = await fetch("/" + id);
-    setUser(await response.json());
-  }
-
-  useEffect(() => {
-    fetchUserData(props.id);
-  }, [props.id]);
-
-  if (!user) {
-    return "Chargement…";
-  }
-
-  return (
-    <details>
-      <summary>Bonjour {user.firstname} {user.name}</summary>
-      <strong>{user.age}</strong> ans
-      <br />
-      Vous vivez à {user.address}
-    </details>
-  );
-}
+**12. Proposez 3 autres tests**  
+On pourrait vérifier que l'adresse URL du site est bon.
+On pourrait vérifier toutes les informations d'un utilisateur.(nom, prénom, adresse email, ...)
+On pourrait vérifier si l'utilisateur est en ligne ou déconnecté (avec un bouton vert pour dire qu'il est connecté, et un rouge pour dire qu'il est déconnecté).
 
 
 ## Mini-projet
