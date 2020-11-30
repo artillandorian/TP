@@ -35,6 +35,9 @@ Oui, c'est d'ailleurs ce que nous avons pu constater sur la ligne 9. Props utili
 
 **6. Précisez étape par étape ce que fait React lorsque le champ nom est modifié.**
 
+Ouverture de l'application, utilisation de la fonction Inscription() ligne 62
+```
+Ligne 64 construction de name et de setName
 Ligne 77 : appel de la fonction NameField se situant ligne 32.
 Ligne 32 : mise en place de la fonction ayant comme valeurs d'entrées "name" et "setname".
 Ligne 33 : création d'une variable string. Elle appelle la fonction validateName (ligne 26) qui vérifie la présence ou non d'un élément provenant de la zone de texte "name". Si un élément existe alors elle ne renvoie rien. Si un élément n'existe pas elle renvoie le texte "Un nom est obligatoire".
@@ -44,12 +47,16 @@ Ligne 36 : met en place un input ayant comme valeur les données saisie par l'ut
 Ligne 40 : fonction is valid qui verifie si la variable message est strictement égale à 0 ou non.
 Ligne 41 : fermeture de l'input
 Ligne 42 : affichage de la variable message.
+```
 
 
 **7. Expliquez la regex pour valider un email. Vous pouvez la recopier dans regex101.com pour vous aider.**
 Le regex permet d'obliger l'utilisateur à remplir une zone avec des restrictions.
 Par exemple le regex mis en place dans la fonction validateEmail oblige l'utilisateur à :
-1. Mettre un caractère (ou plusieurs) entre a et z / A et Z / 0 et 9 et autorise aussi "
+1. Oblige un caractère (ou plusieurs) entre ```a et z / A et Z / 0 et 9``` et autorise aussi ```.!#$%&'*+/=?^_`{|}~-```. Par exemple é, è, ç ne sont pas compris dans les caractères autorisés.
+2. Oblige un ```@``` après avoir mis un caractère (minimum)
+3. Oblige un caractère (ou plusieurs) entre ```a et z / A et Z / 0 et 9.
+De mon point du vu, il me semble qu'il manque une obligation d'ajout d'un point après le(s) caractères(s). Actuellement, il est possible de faire une adresse email type a@a ce qui ne me semble pas bon. Cependant, il y a une règle de gestion obligent l'utilisateur à terminer son email si l'utilisateur passe un point après l'adresse email. (exemple a@a. est impossible)
 
 ## Mini-projet : un timer
 
