@@ -5,29 +5,29 @@
 Analysez le [code situé du projet](https://codesandbox.io/s/tp-props-q0wln?file=/src/App.js) puis répondez aux questions.
 
 
-**1. Quelle ligne charge le fichier JSON dans le code ?**
+**1. Quelle ligne charge le fichier JSON dans le code ?**  
 La ligne qui charge le fichier JSON est la ligne 4 "import users from "./Users.json";"
 
-**2. Quelle est la structure de données du fichier JSON ?**
+**2. Quelle est la structure de données du fichier JSON ?**  
 Le JSON est un language permettant de stocker des données en NoSql.
 JSON est construit par rapport à deux structures :
 
 Une collection de paires nom / valeur. Dans les différentes langages, ce type de structure peut s’appeler objet, enregistrement, dictionnaire, table de hachage, liste à clé ou tableau associatif.
 Une liste ordonnée de valeurs. Dans la plupart des langages, c’est ce qu’on va appeler tableau, liste, vecteur ou séquence.
 
-**3. Justifiez le `User.propTypes`. Quelles données ne sont pas prises en compte ?**
+**3. Justifiez le `User.propTypes`. Quelles données ne sont pas prises en compte ?**  
 Il permet de créer une structure de données d'un utilisateur. Certains éléments tels que le nom, le prénom et titre sont obligatoire pour construire un utilisateur. Là où la localité, le genre, ... ne le sont pas. / ????????
 
-**4. Quelles données sont obligatoires pour construire le composant `User` ?**
+**4. Quelles données sont obligatoires pour construire le composant `User` ?**  
 Pour construire un utilisateur : son nom, son prénom et un titre est obligatoire
 
-**5. A quoi correspond `PropTypes.shape` ?**
+**5. A quoi correspond `PropTypes.shape` ?**  
 Il permet de créer des sous catégories à des éléments. Tel que pour l'élément "name". Cette catégorie possède un first (prénom), last (nom) et un titre. Cela permet donc de structurer les données.
 
-**6. Pourquoi l'attribut contient deux accolades ?**
+**6. Pourquoi l'attribut contient deux accolades ?**  
 Ces doubles accolades permettent d'accéder à la feuille de style css.
 
-**7. Quel est le nom de l'opérateur qui transmet les données du composant `App` vers le composant `User`? Pourquoi est-ce dangereux d'abuser de cet opérateur ?**
+**7. Quel est le nom de l'opérateur qui transmet les données du composant `App` vers le composant `User`? Pourquoi est-ce dangereux d'abuser de cet opérateur ?**  
 l'opérateur est "export default". Il est lié au nom de du fichier car c'est un export default. Il est aussi possible d'exporter sans default, mais de ce cas, cet export n'est pas lié au nom du fichier mais au nom de la fonction en elle même.
 
 
@@ -36,17 +36,17 @@ l'opérateur est "export default". Il est lié au nom de du fichier car c'est un
 
 #### Voici le code proposé pour le projet
 
-<p>
+```javascript
       {props.location.state}, {props.location.country},
       {props.gender === "male" ? "Né le 27/02/1942" : "Née le 27/02/1942"}
-</p>
+```
 
 ####
 
 ## Rédaction de tests
 **9. Lisez [les recettes de tests](https://fr.reactjs.org/docs/testing-recipes.html#gatsby-focus-wrapper). Rédigez un test pour vérifier que le composant `User` contient une image.**
 
-// image.test.js
+```javascript
 
 import React from "react";
 import PropTypes from "prop-types";
@@ -58,12 +58,100 @@ describe('La fonction vérification image', () => {
     expect(users[0].picture.medium).toBeTruthy();
   });
 });
+```
 
 **10. Rédigez un autre test dans lequel vous créez le composant `User` avec le `name` de votre choix dans le `props` et vérifiez que le composant affiche bien le `name`.**
 
+```javascript
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+
+import Hello from "./hello";
+
+let container = null;
+beforeEach(() => {
+  // met en place un élément DOM comme cible de rendu
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // nettoie en sortie de test
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it("s’affiche avec nom", () => {
+ act(() => {
+    render(<Hello name="Jean" />, container);
+  });
+  expect(container.textContent).toBe("Bonjour, Jean !");
+```
+
 **11. Faites un test de "capture d'instantanés" en suivant les indications de la documentation**
 
+```javascript
+import React from "react";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+import pretty from "pretty";
+
+import Hello from "./hello";
+
+let container = null;
+beforeEach(() => {
+  // met en place un élément DOM comme cible de rendu
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // nettoie en sortie de test
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it("devrait afficher une salutation", () => {
+  act(() => {
+    render(<Hello name="Jean" />, container);
+  });
+
+  expect(
+    pretty(container.innerHTML)
+  ).toMatchInlineSnapshot();
+```
+
 **12. Proposez 3 autres tests**
+import React, { useState, useEffect } from "react";
+
+export default function User(props) {
+  const [user, setUser] = useState(null);
+
+  async function fetchUserData(id) {
+    const response = await fetch("/" + id);
+    setUser(await response.json());
+  }
+
+  useEffect(() => {
+    fetchUserData(props.id);
+  }, [props.id]);
+
+  if (!user) {
+    return "Chargement…";
+  }
+
+  return (
+    <details>
+      <summary>Bonjour {user.firstname} {user.name}</summary>
+      <strong>{user.age}</strong> ans
+      <br />
+      Vous vivez à {user.address}
+    </details>
+  );
+}
 
 
 ## Mini-projet
