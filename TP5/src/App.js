@@ -1,16 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Link, Route, useParams } from "react-router-dom"
-import './index.css';
-import App from './Router';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter,
+  Link,
+  MemoryRouter,
+  Route,
+  useParams
+} from "react-router-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-export default function Router() {
+export default function App() {
   return (
+    
       <main>
         <nav>
           <ul>
-           <li>
+            <li>
               <Link to="/pages/mon-premier-article">Mon premier article</Link>
             </li>
             <li>
@@ -18,9 +24,9 @@ export default function Router() {
             </li>
           </ul>
         </nav>
-      <Route path="/post/:name">
-        <Post />
-      </Route>
+        <Route path="/post/:name">
+          <Post />
+        </Route>
       </main>
   );
 }
@@ -30,13 +36,12 @@ const Post = () => {
   return <h1>{name.replaceAll("-", " ")}</h1>;
 };
 
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Router />
+      <App />
     </BrowserRouter>
-  </React.StrictMode>
-  ,rootElement
+  </React.StrictMode>,
+  rootElement
 );
