@@ -59,7 +59,7 @@ Ainsi nous pourrons réinvoquer une page fermé précédement.
 **2. Après avoir lu la documentation correspondante, décrivez le fonctionnement de cette fonction.**
 useHistory semble avoir accès à l'historique de l'utilisateur (tout du moins limité à son historique lié au site). Ce qui lui permet de redérouler en sens inverse si l'utilisateur souhaite revenir en arrière.
 
-**3. En utilisant cette fonction, devez-vous implémenter le `CustomLink` composant sous la forme d'une fonction ou d'une classe ?**
+**3. En utilisant cette fonction, devez-vous implémenter le `CustomLink` composant sous la forme d'une fonction ou d'une classe ?**  
 Nous l'implémenterons sous la forme d'une classe.
 
 **4. Faites l'implémentation de `CustomLink`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomLink` dans ce document.**
@@ -116,8 +116,9 @@ export default App;
 ```
 Pour procéder à l'implémentation de `CustomLink` sous l'autre forme (classe ou fonction, selon votre réponse à la question 3.), nous utiliserons la fonction [`withRouter`](https://reactrouter.com/web/api/withRouter). Il s'agit d'un HOC ; nous les verrons en détail dans un prochain cours.
 
-**5. Reprenez les questions 2 à 4 avec `withRouter`**
-
+**5. Reprenez les questions 2 à 4 avec `withRouter`**  
+withRouter transmet les accessoires de correspondance, d'emplacement et d'historique mis à jour au composant encapsulé à chaque fois qu'il sera rendu.
+Nous l'implémenterons sous forme de fonction.
 
 ## Ré-implémenter le composant Route
 
@@ -126,7 +127,9 @@ Notre composant `CustomRoute` accepte deux props:
  - `path` est une chaîne de caractères ;
  - `component` est un composant à afficher lorsque la localisation correspond au `path`. Ce composant reçoit en props `history`, `location` et `match`.
 
-**6. Dans la documentation de la `react-router`, trouvez trois hooks permettant d'obtenir les variables `history`, `location` et `match`.**
+**6. Dans la documentation de la `react-router`, trouvez trois hooks permettant d'obtenir les variables `history`, `location` et `match`.**  
+1 - withRouter  
+2 -
 
 **7. Faites l'implémentation de `CustomRoute`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomRoute` dans ce document.**
 
