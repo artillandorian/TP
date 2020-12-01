@@ -16,8 +16,6 @@ const page [{name:"accueil", path: "/", content: "Page d'accueil"}(name:"legal",
 ```
 3. Dans le return de la fonction "default", il faut afficher les liens de redirection. Le plus souvent ces liens sont placés dans des balises de navigation, permettant à l'utilisateur de naviguer plus simplement.
 ```
-exemple :
-
 <BrowserRouter>
  <nav>
   <ul>
@@ -62,10 +60,60 @@ Ainsi nous pourrons réinvoquer une page fermé précédement.
 useHistory semble avoir accès à l'historique de l'utilisateur (tout du moins limité à son historique lié au site). Ce qui lui permet de redérouler en sens inverse si l'utilisateur souhaite revenir en arrière.
 
 **3. En utilisant cette fonction, devez-vous implémenter le `CustomLink` composant sous la forme d'une fonction ou d'une classe ?**
-
+Nous l'implémenterons sous la forme d'une classe.
 
 **4. Faites l'implémentation de `CustomLink`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomLink` dans ce document.**
+```javascript
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+);
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+);
+
+const MenuLink = ({ children, to, exact }) => (
+  <Route
+    path={to}
+    exact={exact}
+    children={({ match }) => (
+      <div className={match ? "active" : ""}>
+        {match ? "" : ""}
+        <Link to={to}>{children}</Link>
+      </div>
+    )}
+  />
+);
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <MenuLink exact={true} to="/">
+            Home
+          </MenuLink>
+          <MenuLink to="/about">About</MenuLink>
+
+          <hr />
+
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+        </div>
+      </Router>
+    );
+  }
+}
+
+export default App;
+```
 Pour procéder à l'implémentation de `CustomLink` sous l'autre forme (classe ou fonction, selon votre réponse à la question 3.), nous utiliserons la fonction [`withRouter`](https://reactrouter.com/web/api/withRouter). Il s'agit d'un HOC ; nous les verrons en détail dans un prochain cours.
 
 **5. Reprenez les questions 2 à 4 avec `withRouter`**
