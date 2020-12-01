@@ -7,16 +7,21 @@ Lisez attentivement le [code associé à ce TP](https://codesandbox.io/s/react-t
 
 **1. Décrivez les composants (rôle, props, state)**
 
+
 **2. Comment fait `Route` pour s'abonner à ce contexte ? Décrivez le contexte transmis. Quelles données sont accessibles à `Route` ?**
+/ Une route connait la localisation actuelle, ainsi que la localisation précédente.
 
 **3. Ce contexte transporte moins de données que le `MemoryRouter` implémenté dans [`react-router-dom`](https://reactrouter.com/web/api/MemoryRouter). Quelles données ne sont pas accessibles à un composant qui s'abonne à ce contexte ? Citez un cas d'utilisation qui est possible avec la version d'origine `MemoryRouter` mais qui n'est pas possible avec cette implémentation simplifiée.** 
 
 **4. Quel mécanisme rafraîchit les composants lorsqu'un utilisateur clique sur un lien ?**
 
+
 **5. Par quel autre moyen `Route` aurait pu s'abonner au contexte ? Testez le.**
 
 **6. La fonction `withRouter` est un HOC implémenté par  [`react-router-dom`](https://reactrouter.com/web/api/withRouter). Décrivez son rôle et donnez un exemple d'utilisation.
  Implémentez `withRouter` et abonnez le composant `Link` au contexte grâce à cet HOC.**
+withRouter permet de récupérer l'historique d'un "Object". Par exemple, si un Object permettant la localisation récupère de nouvelles valeurs, le withRouter permettra de connaitre l'historique de ces changements.
+
 
 ## Un exemple d'utilisation du contexte avec Material UI
 
