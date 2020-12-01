@@ -133,7 +133,29 @@ Notre composant `CustomRoute` accepte deux props:
 3 - useRouteMatch permet d'obtenir match
 
 **7. Faites l'implémentation de `CustomRoute`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomRoute` dans ce document.**
+```javascript
+import React from "react";
+import "./styles.css";
+import Accueil from "./Accueil";
+import Contact from "./Contact";
+import Navigation from "./Navigation";
+import { BrowerRoute as Router, Route } from "react-router-dom";
 
+export default function App() {
+  return (
+    <div className="App">
+      <Router>
+
+        <Navigation />
+
+        <Route path="/" exact component={Accueil} />
+        <Route path="/Contact" exact component={Contact} />
+        
+      </Router>
+    </div>
+  );
+}
+```
 
 ## Tester le routage avec React
 
