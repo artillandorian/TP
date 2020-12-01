@@ -8,12 +8,61 @@ Pour bien comprendre ce qui se trame dans le routage, nous ré-implémentons les
 Notre version de `Link`, appelée `CustomLink` accepte un props `to` sous la forme d'une chaîne de caractères. Lorsqu'un utilisateur clique sur `Link`, il est redirigé vers la page indiquée par `to`.
 
 **1. Comment fait-on une redirection avec `react-router` ?**
+1. Il faut tout d'abord importer des éléments de React-router-dom tels que Route, BroswerRouter et Link
+2. Dans la fonction default, on créé une constante dans laquelle on instancie par des pages (avec un nom, une redirection, et un contenu par défaut)
+```
+exemple :
+const page [{name:"accueil", path: "/", content: "Page d'accueil"}(name:"legal", path: "/legal", content: "Mentions legales"}]
+```
+3. Dans le return de la fonction "default", il faut afficher les liens de redirection. Le plus souvent ces liens sont placés dans des balises de navigation, permettant à l'utilisateur de naviguer plus simplement.
+```
+exemple :
+
+<BrowserRouter>
+ <nav>
+  <ul>
+   {pages.map((page, indes) => {
+    return (
+     <li key=[index]>
+      <a href={page.path}>{page.name}</a>
+     </li>
+    );
+  </ul>
+ </nav>
+ {pages.map((page, index) =>{
+  return (
+   <Route path={page.path}>
+    <h1 key={index}>{page.content}</h1>
+   </Route>
+  )
+ }
+</BrowserRouter>
+```
+
 
 Mais comment avoir accès à cet objet que vous venez d'évoquer ? Dans le cours, il était injecté par `Route`. Cette fois-ci, nous allons utiliser la fonction [`useHistory`](https://reactrouter.com/web/api/Hooks/usehistory). 
 
+1. Il faut tout d'abord importer la fonction useHistory provenant de react-router-dom
+2. Dans la fonction default, on créé une constante dans laquelle on donne les fonctionnalités de la fonction "useHistory"
+3. Avant le return de la fonction default, créer une fonction (par exemple "backToPage" possédant la fonction histoyy.goBack();
+```
+function backToPage(){
+ history.goBack();
+}
+```
+4. Créer un bouton permettant d'appeler cette fonction avec un bouton possédent la caractéristique onClick permettant ainsi d'appeler la fonction backToPage inséré dans celui-ci.
+```
+<button onClick={backtoPage}>Revenir en arrière</button>
+```
+
+Ainsi nous pourrons réinvoquer une page fermé précédement.
+
+
 **2. Après avoir lu la documentation correspondante, décrivez le fonctionnement de cette fonction.**
+useHistory semble avoir accès à l'historique de l'utilisateur (tout du moins limité à son historique lié au site). Ce qui lui permet de redérouler en sens inverse si l'utilisateur souhaite revenir en arrière.
 
 **3. En utilisant cette fonction, devez-vous implémenter le `CustomLink` composant sous la forme d'une fonction ou d'une classe ?**
+
 
 **4. Faites l'implémentation de `CustomLink`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomLink` dans ce document.**
 
