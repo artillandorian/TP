@@ -128,8 +128,9 @@ Notre composant `CustomRoute` accepte deux props:
  - `component` est un composant à afficher lorsque la localisation correspond au `path`. Ce composant reçoit en props `history`, `location` et `match`.
 
 **6. Dans la documentation de la `react-router`, trouvez trois hooks permettant d'obtenir les variables `history`, `location` et `match`.**  
-1 - withRouter  
-2 -
+1 - useHistory permet d'obtenir la variable history  
+2 - useLocation permet d'obtenir la variable location   
+3 - useRouteMatch permet d'obtenir match
 
 **7. Faites l'implémentation de `CustomRoute`, ajoutez les `propTypes`, testez la dans une codesandbox et copiez votre implémentation de `CustomRoute` dans ce document.**
 
