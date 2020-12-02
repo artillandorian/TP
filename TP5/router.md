@@ -118,7 +118,7 @@ Pour procéder à l'implémentation de `CustomLink` sous l'autre forme (classe o
 
 **5. Reprenez les questions 2 à 4 avec `withRouter`**  
 withRouter transmet les accessoires de correspondance, d'emplacement et d'historique mis à jour au composant encapsulé à chaque fois qu'il sera rendu.
-Nous l'implémenterons sous forme de fonction.
+Nous l'implémenterons sous forme d'une classe.
 ```javascript
 import * as React from "react";
 import Component = React.Component;
