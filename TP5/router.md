@@ -119,6 +119,37 @@ Pour procéder à l'implémentation de `CustomLink` sous l'autre forme (classe o
 **5. Reprenez les questions 2 à 4 avec `withRouter`**  
 withRouter transmet les accessoires de correspondance, d'emplacement et d'historique mis à jour au composant encapsulé à chaque fois qu'il sera rendu.
 Nous l'implémenterons sous forme de fonction.
+```javascript
+import * as React from "react";
+import Component = React.Component;
+import { withRouter } from "react-router";
+
+export interface INavigatorProps {
+    router?: ReactRouter.History.History;
+}
+
+@withRouter
+export class Navigator extends Component<INavigatorProps, {}>{
+    navigate: (to: string) => void;
+    constructor(props: INavigatorProps) {
+        super(props);
+        let self = this;
+        this.navigate = (to) => self.props.router.push(to);
+    }
+    render() {
+        return (
+            <ul>
+                <li onClick={() => this.navigate("/home")}>
+                    Home
+                </li>
+                <li onClick={() => this.navigate("/about")}>
+                    About
+                </li>
+            </ul>
+        )
+    }
+}
+```
 
 ## Ré-implémenter le composant Route
 
